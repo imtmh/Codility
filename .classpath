@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="F:/adt-bundle-windows-x86_64-20140702/eclipse/plugins/org.apache.commons.codec_1.6.0.v201305230611.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
