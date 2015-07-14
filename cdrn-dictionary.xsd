@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://api.issuer.cdrn.com/domain">		
+	<simpleType name="CaseType">
+		<restriction base="string">
+			<enumeration value="DISPUTE"/>
+			<enumeration value="CANCEL"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="Id">
+		<restriction base="string">
+			<maxLength value="30"/>
+			<pattern value="([0-9]{0,30})"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="StatusType">
+		<restriction base="string">
+			<enumeration value="OPEN"/>
+			<enumeration value="PENDING"/>
+			<enumeration value="PROCESSING"/>
+			<enumeration value="CANCELLED"/>
+			<enumeration value="REVOKED"/>
+			<enumeration value="RESOLVED"/>
+			<enumeration value="DECLINED"/>
+			<enumeration value="REVIEWING"/>
+			<enumeration value="EXPORTING"/>
+			<enumeration value="CLOSED"/>
+			<enumeration value="DUPLICATE"/>
+			<enumeration value="UNMATCHED"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="StatusCode">
+		<restriction base="int">
+			<minInclusive value="100"/>
+			<maxInclusive value="955"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="AcquirerReferenceNumber">
+		<restriction base="string">
+			<maxLength value="23"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="SimpleDate">
+	    <restriction base="date"/>
+	</simpleType>
+    <simpleType name="SimpleAmount">
+        <restriction base="float">
+			<maxInclusive value="999999.99"/>
+        </restriction>
+    </simpleType>	
+	<simpleType name="Currency">
+		<restriction base="string">
+			<maxLength value="3"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="CaseNumber">
+		<restriction base="string">
+			<maxLength value="50"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="AuthorizationCode">
+		<restriction base="string">
+			<maxLength value="30"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="ReasonCode">
+		<restriction base="string">
+			<maxLength value="4"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="PaymentType">
+		<restriction base="string">
+			<enumeration value="VI"/>
+			<enumeration value="MC"/>
+			<enumeration value="AM"/>
+			<enumeration value="DI"/>
+		</restriction>
+	</simpleType>
+    <simpleType name="MaskedAccountNumber">
+        <restriction base="string">
+            <minLength value="4"/>
+            <maxLength value="19"/>
+            <pattern value="([x0-9]{4,19})"/>
+        </restriction>	
+    </simpleType>
+	<simpleType name="ExpirationDate">
+        <restriction base="string">
+            <minLength value="0"/>
+            <maxLength value="4"/>
+            <pattern value="([0-9]{0,4})"/>
+        </restriction>
+    </simpleType>
+	<simpleType name="Bin">
+		<restriction base="string">
+			<minLength value="6"/>
+			<maxLength value="6"/>
+			<pattern value="([0-9]{0,6})"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="LastFour">
+		<restriction base="string">
+			<minLength value="4"/>
+			<maxLength value="4"/>
+			<pattern value="([0-9]{0,4})"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="NetworkDescriptor">
+		<restriction base="string">
+			<maxLength value="100"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="UniqueMerchantIdentifier">
+		<restriction base="string">
+			<maxLength value="13"/>
+		</restriction>
+	</simpleType>			
+    <simpleType name="SimpleName">
+        <restriction base="string">
+            <maxLength value="50"/>
+        </restriction>
+    </simpleType>
+   	<simpleType name="SimpleAddress">
+        <restriction base="string">
+            <maxLength value="50"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CountryCode">
+        <restriction base="string">
+            <maxLength value="2"/>
+        </restriction>
+    </simpleType> 
+    <simpleType name="AcquirerCode">
+        <restriction base="string">
+            <maxLength value="11"/>
+        </restriction>
+    </simpleType>     
+    <simpleType name="CardAcceptorCode">
+        <restriction base="string">
+            <maxLength value="15"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CardAcceptorTerminalId">
+        <restriction base="string">
+            <maxLength value="8"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CardAcceptorMerchantName">
+        <restriction base="string">
+            <maxLength value="25"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CardAcceptorCity">
+        <restriction base="string">
+            <maxLength value="13"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="CardAcceptorCountryCode">
+        <restriction base="string">
+            <maxLength value="2"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="MerchantCategoryCode">
+		<restriction base="string">
+			<minLength value="0"/>
+			<maxLength value="4"/>
+			<pattern value="([0-9]{0,4})"/>
+		</restriction>
+    </simpleType>
+    <simpleType name="PointOfSaleEntryMode">
+		<restriction base="string">
+			<minLength value="0"/>
+			<maxLength value="2"/>
+			<pattern value="([0-9]{0,2})"/>
+		</restriction>
+    </simpleType>
+    <simpleType name="PointOfSaleConditionMode">
+		<restriction base="string">
+			<minLength value="0"/>
+			<maxLength value="2"/>
+			<pattern value="([0-9]{0,2})"/>
+		</restriction>
+    </simpleType>
+    <simpleType name="Notes">
+        <restriction base="string">
+            <maxLength value="255"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Timestamp">
+        <restriction base="dateTime">
+			<pattern value="(([12][09][0-9]{2}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?(([\+|\-]((0[0-9])|(1[0-2]))(:[0-5][0-9]))|(\+13(:[0-5][0-9])(:[0-5][0-9]))|\+14:00|Z)"/>
+			<minInclusive value="1970-01-01T00:00:01Z"/>
+			<maxInclusive value="2038-01-19T03:14:07Z"/>
+        </restriction>
+    </simpleType>  
+	<simpleType name="ServiceStatus">
+		<restriction base="string">
+			<enumeration value="UP"/>
+			<enumeration value="DOWN"/>
+		</restriction>
+	</simpleType>
+    <simpleType name="MerchantOrderId">
+        <restriction base="string">
+            <minLength value="0"/>
+            <maxLength value="50"/>
+        </restriction>
+    </simpleType>
+</schema>

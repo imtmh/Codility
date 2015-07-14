@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://api.issuer.cdrn.com/domain"
+		xmlns:cdrn="http://api.issuer.cdrn.com/domain"
+		xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+		jaxb:version="2.1"		
+		elementFormDefault="qualified">
+	<annotation>
+		<appinfo>
+			<jaxb:globalBindings>
+				<jaxb:javaType 
+					name="java.util.Calendar" 
+					xmlType="dateTime" 
+					parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime" 
+					printMethod="javax.xml.bind.DatatypeConverter.printDateTime"/>
+				<jaxb:javaType name="java.sql.Date" xmlType="date"
+					parseMethod="com.cdrn.domain.utility.DateAdapter.unmarshal"
+					printMethod="com.cdrn.domain.utility.DateAdapter.marshal"/>					
+			</jaxb:globalBindings>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.cdrn.issuer.api.domain"/>
+			</jaxb:schemaBindings>
+		</appinfo>
+	</annotation>	
+
+	<!-- include dictionary constructs -->
+	<include schemaLocation="cdrn-dictionary.xsd"/>
+
+	<element name="case">
+        <complexType>
+            <annotation>
+                <documentation>* W A R N I N G *
+IF AT ANY POINT YOU HAVE AN URGE TO EDIT THIS FILE DIRECTLY, DO NOT! ANY CHANGES
+MADE DIRECTLY TO THIS FILE WILL BE OVERWRITTEN BY THE SUBSEQUENT BUILD.
+
+Type used by the system to represent a CDRN issuer Case
+                </documentation>
+            </annotation>
+            <sequence>
+                <element name="type" type="cdrn:CaseType" minOccurs="1" maxOccurs="1"/>
+                <element name="status" type="cdrn:StatusType" minOccurs="1" maxOccurs="1"/>
+                <element name="statusCode" type="cdrn:StatusCode" minOccurs="0" maxOccurs="1"/>
+                <element name="acquirerReferenceNumber" type="cdrn:AcquirerReferenceNumber" minOccurs="0" maxOccurs="1"/>
+                <element name="referenceTransactionDate" type="cdrn:SimpleDate" minOccurs="1" maxOccurs="1"/>
+                <element name="referenceTransactionAmount" type="float" minOccurs="1" maxOccurs="1"/>
+                <element name="referenceTransactionCurrency" type="cdrn:Currency" minOccurs="1" maxOccurs="1"/>
+                <element name="merchantOrderId" type="cdrn:MerchantOrderId" minOccurs="0" maxOccurs="1"/>
+                <element name="number" type="cdrn:CaseNumber" minOccurs="1" maxOccurs="1"/>
+                <element name="date" type="cdrn:SimpleDate" minOccurs="1" maxOccurs="1"/>
+                <element name="amount" type="cdrn:SimpleAmount" minOccurs="1" maxOccurs="1"/>
+                <element name="currency" type="cdrn:Currency" minOccurs="1" maxOccurs="1"/>
+                <element name="authorizationCode" type="cdrn:AuthorizationCode" minOccurs="0" maxOccurs="1"/>
+                <element name="reasonCode" type="cdrn:ReasonCode" minOccurs="0" maxOccurs="1"/>
+                <element name="paymentType" type="cdrn:PaymentType" minOccurs="1" maxOccurs="1"/>
+                <element name="accountNumber" type="cdrn:MaskedAccountNumber" minOccurs="0" maxOccurs="1"/>
+                <element name="accountExpirationDate" type="cdrn:ExpirationDate" minOccurs="0" maxOccurs="1"/>
+                <element name="bin" type="cdrn:Bin" minOccurs="1" maxOccurs="1"/>
+                <element name="lastFour" type="cdrn:LastFour" minOccurs="1" maxOccurs="1"/>
+                <element name="networkDescriptor" type="cdrn:NetworkDescriptor" minOccurs="1" maxOccurs="1"/>
+                <element name="uniqueMerchantIdentifier" type="cdrn:UniqueMerchantIdentifier" minOccurs="0" maxOccurs="1"/>
+                <element name="activityAmount" type="cdrn:SimpleAmount" minOccurs="0" maxOccurs="1"/>
+                <element name="activityCurrency" type="cdrn:Currency" minOccurs="0" maxOccurs="1"/>
+                <element name="activityDate" type="cdrn:SimpleDate" minOccurs="0" maxOccurs="1"/>
+                <element name="firstName" type="cdrn:SimpleName" minOccurs="0" maxOccurs="1"/>
+                <element name="lastName" type="cdrn:SimpleName" minOccurs="0" maxOccurs="1"/>
+                <element name="billingAddress1" type="cdrn:SimpleAddress" minOccurs="0" maxOccurs="1"/>
+                <element name="billingAddress2" type="cdrn:SimpleAddress" minOccurs="0" maxOccurs="1"/>
+                <element name="billingCity" type="cdrn:SimpleAddress" minOccurs="0" maxOccurs="1"/>
+                <element name="billingRegion" type="cdrn:SimpleAddress" minOccurs="0" maxOccurs="1"/>
+                <element name="billingPostalCode" type="cdrn:SimpleAddress" minOccurs="0" maxOccurs="1"/>
+                <element name="billingCountryCode" type="cdrn:CountryCode" minOccurs="0" maxOccurs="1"/>
+                <element name="acquirerCode" type="cdrn:AcquirerCode" minOccurs="0" maxOccurs="1"/>
+                <element name="cardAcceptorCode" type="cdrn:CardAcceptorCode" minOccurs="0" maxOccurs="1"/>
+                <element name="cardAcceptorTerminalId" type="cdrn:CardAcceptorTerminalId" minOccurs="0" maxOccurs="1"/>
+                <element name="cardAcceptorMerchantName" type="cdrn:CardAcceptorMerchantName" minOccurs="0" maxOccurs="1"/>
+                <element name="cardAcceptorCity" type="cdrn:CardAcceptorCity" minOccurs="0" maxOccurs="1"/>
+                <element name="cardAcceptorCountryCode" type="cdrn:CardAcceptorCountryCode" minOccurs="0" maxOccurs="1"/>
+                <element name="merchantCategoryCode" type="cdrn:MerchantCategoryCode" minOccurs="0" maxOccurs="1"/>
+                <element name="pointOfSaleEntryMode" type="cdrn:PointOfSaleEntryMode" minOccurs="0" maxOccurs="1"/>
+                <element name="pointOfSaleConditionMode" type="cdrn:PointOfSaleConditionMode" minOccurs="0" maxOccurs="1"/>
+                <element name="notes" type="cdrn:Notes" minOccurs="0" maxOccurs="1"/>
+                <element name="generationTimestamp" type="cdrn:Timestamp" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+            <attribute name="id" type="cdrn:Id"/>
+        </complexType>
+    </element>
+
+    <element name="caseList">
+        <complexType>
+            <annotation>
+                <documentation>* W A R N I N G *
+IF AT ANY POINT YOU HAVE AN URGE TO EDIT THIS FILE DIRECTLY, DO NOT! ANY CHANGES
+MADE DIRECTLY TO THIS FILE WILL BE OVERWRITTEN BY THE SUBSEQUENT BUILD.
+
+Type used by the system to represent a CDRN issuer Case
+                </documentation>
+            </annotation>
+            <sequence>
+
+                <element name="cases" minOccurs="1" maxOccurs="1" nillable="false">
+                    <annotation>
+                        <appinfo>
+                            <jaxb:property name="list"/>
+                        </appinfo>
+                    </annotation>
+                    <complexType>
+                        <sequence>
+                            <element ref="cdrn:case" minOccurs="1" maxOccurs="unbounded" >
+                                <annotation>
+                                    <appinfo>
+                                        <jaxb:property name="cases"/>
+                                    </appinfo>
+                                </annotation>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+
+            </sequence>
+            <attribute name="count" type="int"/>
+        </complexType>
+    </element>
+
+	<element name="healthStats">
+		<complexType>
+			<annotation>
+				<documentation>* W A R N I N G *
+IF AT ANY POINT YOU HAVE AN URGE TO EDIT THIS FILE DIRECTLY, DO NOT! ANY CHANGES
+MADE DIRECTLY TO THIS FILE WILL BE OVERWRITTEN BY THE SUBSEQUENT BUILD.				
+
+Health status for all issuer api services			
+				</documentation>
+			</annotation>	
+			<sequence>
+				<element name="caseDasStatus" type="cdrn:ServiceStatus" minOccurs="1" maxOccurs="1"/>
+				<element name="caseDasMessage" type="cdrn:Notes" minOccurs="0" maxOccurs="1"/>
+				<element name="issuerApiStatus" type="cdrn:ServiceStatus" minOccurs="1" maxOccurs="1"/>
+				<element name="issuerApiMessage" type="cdrn:Notes" minOccurs="0" maxOccurs="1"/>
+			</sequence>		
+		</complexType>
+	</element>
+	
+	<element name="merchantList">
+		<complexType>
+			<annotation>
+				<documentation>
+* W A R N I N G * IF AT ANY POINT YOU HAVE AN URGE TO EDIT THIS FILE DIRECTLY, DO NOT! ANY CHANGES
+MADE DIRECTLY TO THIS FILE WILL BE OVERWRITTEN BY THE SUBSEQUENT BUILD.				
+
+Merchant List for returning Issuer MLE				
+		</documentation>
+			</annotation>
+			<sequence>
+				<element name="merchants">
+					<complexType>
+						<sequence>
+				 			<element name="merchant" type="cdrn:merchant" minOccurs="0" maxOccurs="unbounded"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+			<attribute name="id" type="string"/>
+			<attribute name="count" type="int"/>
+		</complexType>
+	</element>
+	
+	<complexType name="merchant">
+		<annotation>
+			<documentation>
+* W A R N I N G * IF AT ANY POINT YOU HAVE AN URGE TO EDIT THIS FILE DIRECTLY, DO NOT! ANY CHANGES
+MADE DIRECTLY TO THIS FILE WILL BE OVERWRITTEN BY THE SUBSEQUENT BUILD.				
+
+Merchant for returning Issuer MLE				
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="paymentDescriptor" minOccurs="1" maxOccurs="1">
+				<complexType>
+					<simpleContent>
+						<extension base="string">
+							<attribute name="id">
+								<simpleType>
+									<restriction base="int"/>
+								</simpleType>
+							</attribute>
+						</extension>
+					</simpleContent>
+				</complexType>
+			</element>
+			<element name="paymentDescriptorContact" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="13"/>
+					</restriction>
+				</simpleType>
+			</element>	
+			<element name="startDate" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="10"/>
+						<pattern value="(\d{4})-(\d{2})-(\d{2})" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="endDate" minOccurs="0" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="10"/>
+						<pattern value="(\d{4})-(\d{2})-(\d{2})" />
+					</restriction>
+				</simpleType>
+			</element>		
+		</sequence>
+		<attribute name="id" type="int"/>
+	</complexType>
+
+</schema>
