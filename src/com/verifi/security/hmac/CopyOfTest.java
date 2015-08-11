@@ -7,7 +7,7 @@ import com.pega.UTCTimeGeneration;
 public class CopyOfTest {
 	public static void main(String[] args) {
 		
-		String verifiPost = "POST" + "\n" 
+		/*String verifiPost = "POST" + "\n" 
 				+ "api.testing.cdrn.com" + "\n" 
 				+ "/issuers/cases" + "\n" 
 				+ "<case xmlns=\"http://api.issuer.cdrn.com/domain\"><type>DISPUTE</type><acquirerReferenceNumber>24610442650004053098988</acquirerReferenceNumber><referenceTransactionDate>2015-04-02</referenceTransactionDate><referenceTransactionAmount>35.22</referenceTransactionAmount><referenceTransactionCurrency>USD</referenceTransactionCurrency><number>D-143</number><date>2015-05-15</date><amount>35.22</amount><currency>USD</currency><reasonCode>30</reasonCode><paymentType>VI</paymentType><accountNumber>435299xxxxxx9999</accountNumber><bin>435299</bin><lastFour>9999</lastFour><networkDescriptor>Swiss Hotel</networkDescriptor><uniqueMerchantIdentifier>25076899</uniqueMerchantIdentifier><generationTimestamp>2015-05-15T10:00:59.122Z</generationTimestamp></case>" + "\n" 
@@ -18,7 +18,7 @@ public class CopyOfTest {
 				+ "/issuers/cases" + "\n" 
 				+ "caseId=1739260,1786213" + "\n" 
 				+ "1.0" + "\n" 
-				+ UTCTimeGeneration.getUTCTime() + "\n";
+				+ UTCTimeGeneration.getUTCTime() + "\n";*/
 		String verifiReadGet1 = "GET" + "\n" 
 				+ "api.testing.cdrn.com" + "\n" 
 				+ "/issuers/cases/2721277" + "\n" 
