@@ -11,7 +11,7 @@ public class ReverseLinkedList {
 			tempy = tempy.next;
 		}
 		System.out.println(temp);
-		temp =  reverseList(temp);
+		temp = reverseList(temp);
 		System.out.println(temp);
 	}
 
@@ -26,5 +26,4 @@ public class ReverseLinkedList {
 		}
 		return prev;
 	}
-
 }
