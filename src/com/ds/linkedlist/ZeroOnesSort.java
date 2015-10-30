@@ -1,7 +1,5 @@
 package com.ds.linkedlist;
 
-import java.util.LinkedList;
-
 public class ZeroOnesSort {
 	public static void main(String[] args) {
 
