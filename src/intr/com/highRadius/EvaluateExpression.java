@@ -6,12 +6,13 @@ public class EvaluateExpression {
 
 	public static void main(String[] args) {
 		// String str = "(/ 225 25)";//
-		String str = "(+ 3 (* 5 2) (- 6 3))"; // "(* 2 (- 7 3) 4)";
-		float res = evaluateExpr(str);
+		// String str = "(* 2 (- 7 3) 4)";
+		String str = "(+ 3 (* 5 2) (- 6 3))";
+		float res = evaluateExpression(str);
 		System.out.println((int) res);
 	}
 
-	private static float evaluateExpr(String str) {
+	private static float evaluateExpression(String str) {
 		char[] ch = str.toCharArray();
 		int i = 1;
 		char operator = ch[i];
@@ -38,13 +39,13 @@ public class EvaluateExpression {
 						count--;
 					sb.append(ch[i++]);
 				}
-				numbers.add(evaluateExpr(sb.toString()));
+				numbers.add(evaluateExpression(sb.toString()));
 			}
 		}
-		return getSol(operator, numbers);
+		return getSolution(operator, numbers);
 	}
 
-	private static float getSol(char operator, List<Float> numbers) {
+	private static float getSolution(char operator, List<Float> numbers) {
 
 		float res = 0;
 		if (operator == '+') {
@@ -62,11 +63,10 @@ public class EvaluateExpression {
 			}
 			res = -res;
 		} else if (operator == '/') {
-			float f = 1;
 			for (Float i : numbers) {
-				f = 1 / (f / i);
+				res = 1 / (res / i);
 			}
-			res = 1 / f;
+			res = 1 / res;
 		}
 		return res;
 	}
