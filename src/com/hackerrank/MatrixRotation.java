@@ -4,6 +4,7 @@ import java.util.*;
 
 public class MatrixRotation {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[][] km = new int[5][3];
@@ -18,7 +19,6 @@ public class MatrixRotation {
 		int b = sc.nextInt();
 		int r = sc.nextInt();
 		int[][] m = new int[a][b];
-		int[][] n = new int[a][b];
 		for (int i = 0; i < a; i++) {
 			for (int j = 0; j < b; j++) {
 				m[i][j] = sc.nextInt();
@@ -29,20 +29,10 @@ public class MatrixRotation {
 		for (int i = 0; i < min / 2; i++) {
 			cr = 2 * (a + b - 2);
 			int tempR = r % cr;
-			int ta = 0;
-			int tb = 0;
 			if (tempR < a) {
-				ta = i;
-				tb = cr;
 			} else if (tempR < a + b - 1) {
-				ta = a - 1;
-				tb = cr - i - a + 1;
 			} else if (tempR < (2 * a + b - 2)) {
-				ta = cr - a - b + 2;
-				tb = b - 1-i;
 			} else if (tempR < (2 * (a + b) - 3)) {
-				ta = cr - i - 2 * a - b + 3;
-				tb = i;
 			}
 
 			if (cr < a)
