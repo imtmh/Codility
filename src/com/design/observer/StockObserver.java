@@ -18,14 +18,14 @@ public class StockObserver implements Observer {
 	
 	// Will hold reference to the StockGrabber object
 	
-	private Subject stockGrabber;
+	//private Subject stockGrabber;
 	
 	public StockObserver(Subject stockGrabber){
 		
 		// Store the reference to the stockGrabber object so
 		// I can make calls to its methods
 		
-		this.stockGrabber = stockGrabber;
+	//	this.stockGrabber = stockGrabber;
 		
 		// Assign an observer ID and increment the static counter
 		
